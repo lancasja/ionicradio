@@ -1,0 +1,36 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">420 Radio</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item nav-clear menu-close href="#/app/stream">
+          Live
+        </ion-item>
+        <ion-item nav-clear class="item-text-wrap">
+          420RADIO is Your 24-Hour Cannabis Community Radio, featuring live original programming from the top reform activists, cannabis cultivators, and music hosts in the 420 lifestyle.
+        </ion-item>
+        <ion-item nav-clear class="item-text-wrap" menu-close onclick="window.open('http://sacredserum.com/', '_blank', 'location=no')">
+          Introducing a stunning collection of cannabis accessories that delivers on exquisite design, exceptional quality & unforgettable flavor.
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/legal">
+          Legal/Disclaimer
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

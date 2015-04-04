@@ -11,12 +11,12 @@
 // The 2nd parameter is an array of 'requires'
 // 'radioLive.controllers' is found in controllers.js
 // Installed ngCordova [http://ngcordova.com/]
-angular.module('radioLive', ['ionic', 'radioLive.controllers', 'ngCordova'])
+var radioLiveApp = angular.module('radioLive', ['ionic', 'radioLive.controllers', 'ngCordova', 'ngSanitize']);
 
 /* ============= */
 /* == STARTUP == */
 /* ============= */
-.run(function($ionicPlatform) {
+radioLiveApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -28,12 +28,12 @@ angular.module('radioLive', ['ionic', 'radioLive.controllers', 'ngCordova'])
       StatusBar.styleDefault();
     }
   });
-})
+});
 
 /* ============ */
 /* == ROUTES == */
 /* ============ */
-.config(function($stateProvider, $urlRouterProvider) {
+radioLiveApp.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
 

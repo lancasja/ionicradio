@@ -1,8 +1,21 @@
 <ion-view view-title="Episodes">
-  <ion-content>
+  <ion-content ng-init="init()">
     <ion-list>
-      <ion-item ng-repeat="episode in episodes" href="#/app/episodes/{{episode.id}}">
-        {{episode.title}}
+    	<!--  href="#/app/episodes/{{endtry.id}}" -->
+      <ion-item ng-repeat="entry in entries" class="item-text-wrap">
+    		<div class="row">
+    			<div class="col">
+      			<h3>{{entry.title}}</h3>
+      		</div>
+      	</div>
+      	<div class="row">
+      		<div class="col" ng-click="playEpisode()">
+      			<button class="button button-block button-calm">Play</button>
+      		</div>
+      		<div class="col" ng-click="openLinkInWebView(entry.link)">
+      			<button class="button button-block button-outline button-calm">More...</button>
+      		</div>
+      	</div>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -107,21 +107,38 @@ angular.module('radioLive.controllers', [])
 /* ============================= */
 /* == EPISODE LIST CONTROLLER == */
 /* ============================= */
-.controller('EpisodesCtrl', function($scope) {
-  $scope.episodes = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('EpisodesCtrl', function($scope, $http) {
+
+  $scope.init = function() {
+    // Ping Google Feed API
+    $http.get('http://ajax.googleapis.com/ajax/services/feed/load', {
+      params: {
+        'v': '1.0',
+        'q': 'http://420radio.org/shows/rbs/feed/',
+        'num': '10'
+      }
+    })
+    .success(function(data) {
+      $scope.rssTitle = data.responseData.feed.title;
+      $scope.entries = data.responseData.feed.entries;
+    })
+    .error(function(data) {
+      console.log(data);
+    });
+  };
+
+  $scope.openLinkInWebView = function(url) {
+    window.open(url, '_blank', 'location=no');
+  }
 })
 
 /* =============================== */
 /* == SINGLE EPISODE CONTROLLER == */
 /* =============================== */
 .controller('EpisodeCtrl', function($scope, $stateParams) {
+
+  var audio = new Audio();
+
 });
 
 
